@@ -1,0 +1,8 @@
+<h3>Place name</h3>
+<p-carousel [value]="images" [numVisible]="1" [circular]="true">
+    <ng-template let-images pTemplate="item">
+        <img [src]="images"
+        style="overflow: hidden; background-repeat: no-repeat;"
+        alt="place-images">
+    </ng-template>
+</p-carousel>
