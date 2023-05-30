@@ -1,8 +1,25 @@
-<h3>Place name</h3>
-<p-carousel [value]="images" [numVisible]="1" [circular]="true">
-    <ng-template let-images pTemplate="item">
-        <img [src]="images"
-        style="overflow: hidden; background-repeat: no-repeat;"
-        alt="place-images">
-    </ng-template>
-</p-carousel>
+<!-- Back on home page -->
+<button pButton class="p-button-secondary p-button-text" routerLink="/home">
+    <i class="pi pi-arrow-left"></i>
+    <p>Retour à la page d'accueil</p>
+</button>
+<!-- Name, images, address of the requested place -->
+<div class="container">
+    <h2>{{placeData.name}}</h2>
+    <div class="images">
+        <p-carousel [value]="images" [numVisible]="1" [circular]="true">
+            <ng-template let-images pTemplate="item">
+                <img [src]="images"
+                style="overflow: hidden; background-repeat: no-repeat;"
+                width="100%" 
+                height="100%"
+                alt="place-images">
+            </ng-template>
+        </p-carousel>   
+    </div>
+    <p>Adresse: <strong class="purple-font">{{placeData.address}}, {{placeData.postal_code}}, {{placeData.city}}</strong></p>
+</div>
+<!-- Reviews -->
+<div class="reviews-container">
+    <app-review></app-review>
+</div>

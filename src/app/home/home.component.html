@@ -1,5 +1,14 @@
-<!-- BARRE DE RECHERCHE -->
-<p>Recherche ...</p>
-<app-place></app-place>
-
-<!-- BARRE DE NAVIGATION -->
+<!-- Search bar: autocomplete -->
+<p-autoComplete 
+placeholder="Search"
+[(ngModel)]="selectedPlace" 
+[suggestions]="filteredPlaces" 
+(completeMethod)="search($event)"
+[style]="{'width':'100%'}" 
+[inputStyle]="{'width':'100%'}"
+(keydown.enter)="onDisplayInformations(selectedPlace)">
+</p-autoComplete>
+<!-- Loading spinner -->
+<div *ngIf="loading" class="loading-spinner">
+    <i class="pi pi-spin pi-spinner"></i>
+</div>

@@ -1,1 +1,19 @@
-<app-home></app-home>
+<header>
+    <img src="assets/handiaccess-logo.png" alt="handiaccess-logo">
+</header>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+<footer>
+    <div class="navbar">
+        <button pButton class="p-button-rounded p-button-help p-button-text" routerLink='/map'>
+            <i class="pi pi-map"></i>
+        </button>
+        <button pButton class="p-button-rounded p-button-help p-button-text" routerLink='/home'>
+            <i class="pi pi-home"></i>
+        </button>
+        <button pButton class="p-button-rounded p-button-help p-button-text" routerLink='/user'>
+            <i class="pi pi-user"></i>
+        </button>
+    </div>
+</footer>

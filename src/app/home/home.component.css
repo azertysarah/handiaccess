@@ -1,0 +1,12 @@
+p-autocomplete {
+    width: 100%;
+}
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+}
+i {
+    font-size: 5rem;
+    color: var(--lightPurple);
+}

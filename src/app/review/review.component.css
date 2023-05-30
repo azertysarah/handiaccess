@@ -1,5 +1,7 @@
 .box {
-    width: 50rem;
+    border-radius: 10px;
+    background-color: rgb(246, 246, 246);
+    padding: 0.5rem 1rem;
 }
 
 .header {
@@ -36,5 +38,5 @@ p {
 }
 
 .grey-font {
-    color: var(--greyFont);
+    color: grey;
 }
