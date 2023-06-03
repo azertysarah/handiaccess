@@ -1,0 +1,47 @@
+<form [formGroup]="sign_upForm" (submit)="sign_up()" autocomplete="new-password">
+    <h1>Create an account</h1>
+
+    <div class="form-control">
+        <label for="gender">Gender :</label>
+        <select formControlName="gender" name="gender">
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div class="form-control">
+        <label for="name">Name</label>
+        <input formControlName="name" autocomplete="new-password" type="text"/>
+    </div>
+
+    <div class="form-control">
+        <label for="dateOfBirth">Date Of Birth</label>
+        <input formControlName="dateOfBirth" autocomplete="new-password" type="date"/>
+    </div>
+
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input formControlName="email" autocomplete="new-password" type="email"/>
+    </div>
+
+    <div class="form-control">
+        <label for="confirm_email">Confirm Email</label>
+        <input formControlName="confirm_email" autocomplete="new-password" type="email"/>
+    </div>
+
+    <div class="form-control">
+        <label for="password">Password</label>
+        <input formControlName="password" id="password" autocomplete="new-password" type="password"/>
+    </div>
+
+    <div class="form-control">
+        <label for="confirm_password">Confirm Password</label>
+        <input formControlName="confirm_password" id="confirm_password" autocomplete="new-password" type="password"/>
+    </div>
+
+    <button type="submit">Sign Up &#8594;</button>
+</form>
+
+<button class="button-login" (click)="redirigerVersLogin()">Login</button>

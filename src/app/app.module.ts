@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CarouselModule } from 'primeng/carousel';
 import { AvatarModule } from 'primeng/avatar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 
@@ -18,6 +18,7 @@ import { ReviewComponent } from './review/review.component';
 import { PlaceComponent } from './place/place.component';
 import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
+import { CreateaccountComponent } from './create_account/create_account.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserComponent } from './user/user.component';
     ReviewComponent,
     PlaceComponent,
     MapComponent,
-    UserComponent
+    UserComponent,
+    CreateaccountComponent
   ],
   imports: [
     AppRoutingModule,
@@ -39,7 +41,8 @@ import { UserComponent } from './user/user.component';
     AutoCompleteModule,
     FormsModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
