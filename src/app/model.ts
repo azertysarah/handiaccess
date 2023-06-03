@@ -1,6 +1,6 @@
 export interface Review {
     author: string;
-    date: string;
+    date: Date;
     content: string;
     useful: number;
     useless: number;

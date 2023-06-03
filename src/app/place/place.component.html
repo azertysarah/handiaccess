@@ -5,7 +5,7 @@
 </button>
 <!-- Name, images, address of the requested place -->
 <div class="container">
-    <h2>{{placeData.name}}</h2>
+    <h2>{{placeData?.name}}</h2>
     <div class="images">
         <p-carousel [value]="images" [numVisible]="1" [circular]="true">
             <ng-template let-images pTemplate="item">
@@ -17,9 +17,28 @@
             </ng-template>
         </p-carousel>   
     </div>
-    <p>Adresse: <strong class="purple-font">{{placeData.address}}, {{placeData.postal_code}}, {{placeData.city}}</strong></p>
+    <p>Adresse: <strong class="purple-font">{{placeData?.address}}, {{placeData?.postal_code}}, {{placeData?.city}}</strong></p>
+    <!-- Go to location -->
+    <button id="goToButton" pButton label="Afficher sur la carte" class="p-button-outlined p-button-help"></button>
+</div>
+<!-- Write a review -->
+<div class="newReview">
+    <textarea 
+    id="newReviewTextarea"
+    pInputTextarea 
+    placeholder="Ajouter un commentaire"
+    [(ngModel)]="newReviewContent" 
+    (click)="onLoginVerification()">
+    </textarea>
+    <p-button 
+    id="sendingButton" 
+    icon="pi pi-send" 
+    styleClass="p-button-rounded p-button-help" 
+    [disabled]="!newReviewContent"
+    (click)="onPostReview()">
+    </p-button>
 </div>
 <!-- Reviews -->
-<div class="reviews-container">
-    <app-review></app-review>
+<div class="reviews-container" *ngFor="let review of reviews">
+    <app-review [review]="review" [placeId]="placeId"></app-review>
 </div>

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPlacesName(list: any) {
-    let names = [];
+    let names: any[] = [];
     for(let i=0; i<list.length; i++) {
       names.push(list[i].name);
     }

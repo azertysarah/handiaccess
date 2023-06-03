@@ -9,6 +9,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule }   from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,7 +40,8 @@ import { UserComponent } from './user/user.component';
     AutoCompleteModule,
     FormsModule,
     MenubarModule,
-    ButtonModule
+    ButtonModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

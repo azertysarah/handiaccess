@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PlaceService } from '../place.service';
 
 @Component({
   selector: 'app-review',
@@ -7,16 +8,16 @@ import { Component, Input } from '@angular/core';
 })
 export class ReviewComponent {
   @Input() review : any;
+  @Input() placeId: string = '';
 
-  constructor(){}
+  constructor(
+    private placeService: PlaceService
+  ){}
 
-  onIncrementCounter(counter: string){
-    if(counter == 'useful') {
-        // function to the back
-    }
-    if(counter == 'useless'){
-        // function to the back
-    }
+  onIncrementCounter(counter: string, reviewId: string){
+      this.placeService.updateReview(counter, reviewId, this.placeId).subscribe({
+        next: () => console.log('Review updated'),
+        error: () => console.log('Review failed to update')
+      });
   }
-
 }

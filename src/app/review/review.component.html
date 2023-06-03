@@ -2,18 +2,18 @@
     <div class="header">
         <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle"></p-avatar>
         <div class="author-date">
-            <strong>Auteur</strong> 
-            <p class="grey-font">Posté le 00/00/0000</p>
+            <strong>{{review.author}}</strong> 
+            <p class="grey-font">Posté le {{review.date | date: 'dd/MM/yyyy'}}</p>
         </div>
         <div class="rating">
-            <p class="grey-font">5</p>
-            <p class="counter space" (click)="onIncrementCounter('useful')">Utile</p>
+            <p class="grey-font">{{review.useful}}</p>
+            <p class="counter space" (click)="onIncrementCounter('useful', review._id)">Utile</p>
             <p>|</p>
-            <p class="counter space" (click)="onIncrementCounter('useless')">Pas utile</p>
-            <p class="grey-font">5</p>
+            <p class="counter space" (click)="onIncrementCounter('useless', review._id)">Pas utile</p>
+            <p class="grey-font">{{review.useless}}</p>
         </div>
     </div>
     <div class="content">
-        <p>Lorem ipsuuuum</p>
+        <p>{{review.content}}</p>
     </div>
 </div>
