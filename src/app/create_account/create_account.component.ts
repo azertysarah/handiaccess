@@ -28,6 +28,7 @@ export class CreateaccountComponent {
           (response) => {
             // Gérez la réponse du backend ici
             console.log(response);
+            this.goToHomePage();
           },
           (error) => {
             // Gérez les erreurs ici
@@ -37,8 +38,11 @@ export class CreateaccountComponent {
     }      
     constructor(private router: Router, private authService: AuthService) {}
     
-    redirigerVersLogin() {
+    goToLogin() {
         this.router.navigate(['/user']);
+    }
+    goToHomePage(){
+        this.router.navigate(['/home']);
     }
       
 };
