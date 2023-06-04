@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
 import { PlaceComponent } from './place/place.component';
-
+import { CreateaccountComponent } from './create_account/create_account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'places/:id', component: PlaceComponent },
   { path: 'user', component: UserComponent },
+  { path: 'create_account', component: CreateaccountComponent },
   
 ];
 
