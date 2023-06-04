@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'places/:id', component: PlaceComponent },
   { path: 'user', component: UserComponent },
   { path: 'create_account', component: CreateaccountComponent },
-  
 ];
 
 @NgModule({

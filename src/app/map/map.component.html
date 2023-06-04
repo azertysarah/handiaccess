@@ -1,1 +1,89 @@
-<p>map works!</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Peaky Blinders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./lib/Flat-UI-master/dist/css/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./lib/Flat-UI-master/dist/css/flat-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="./lib/Flat-UI-master/dist/css/flat-ui.css" />
+    <link rel="stylesheet" href="./lib/leaflet/leaflet.css" />
+	
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-inverse navbar-embossed"
+      role="navigation"
+      style="margin-bottom: 0; border-radius: 0; z-index: 1000;background-color: #dbb0ff;"
+    >
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">Peaky Blinders</a>
+      </div>
+      <!-- <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="dropdown">
+            <a href="JavaScript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+              >Map zoom
+              <b class="caret"></b>
+            </a>
+            <span class="dropdown-arrow"></span>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="JavaScript:void(0)" onclick="setZoom()">Fixed maps</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" onclick="setZoomIn()">Zoom in on the map</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" onclick="setZoomOut()">Zoom out on the map</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="JavaScript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+              >Map Locator
+              <b class="caret"></b>
+            </a>
+            <span class="dropdown-arrow"></span>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="JavaScript:void(0)" onclick="panTo()">Panning to target point</a>
+              </li>
+              <li>
+                <a href="JavaScript:void(0)" onclick="flyTo()">Flying to target point</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+      <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12" id="mapDiv" style="position: absolute;height: 82%;width: 97.5%;"></div>
+		
+        <!-- 地图面板 -->
+        <!--底部状态栏部分 -->
+      </div>
+	  
+    </div>
+  </body>
+  <script src="./lib/Flat-UI-master/dist/js/vendor/jquery.min.js"></script>
+  <script src="./lib/Flat-UI-master/dist/js/flat-ui.js"></script>
+  <script src="./lib/leaflet/leaflet.js"></script>
+  <script src="./js/urlTemplate.js"></script>
+  <script src="./js/app.js"></script>
+</html>
+
