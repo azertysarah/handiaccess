@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-create_account',
@@ -19,17 +20,27 @@ export class CreateaccountComponent {
 
     });
     
-    sign_up(){
-        // CALL-API with username and password
+    sign_up() {
         if (this.sign_upForm.invalid) return;
-    
-        alert('Calling backend to sign up');
-    }
-    constructor(private router: Router) {}
+        
+        const formData = this.sign_upForm.value;
+        this.authService.signup(formData).subscribe(
+          (response) => {
+            // Gérez la réponse du backend ici
+            console.log(response);
+          },
+          (error) => {
+            // Gérez les erreurs ici
+            console.error(error);
+          }
+        );
+    }      
+    constructor(private router: Router, private authService: AuthService) {}
     
     redirigerVersLogin() {
         this.router.navigate(['/user']);
     }
+      
 };
 
   
