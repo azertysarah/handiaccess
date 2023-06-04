@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PlaceService } from '../place.service';
+import { PlaceService } from '../services/place.service';
 
 @Component({
   selector: 'app-review',

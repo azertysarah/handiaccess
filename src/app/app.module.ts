@@ -43,11 +43,8 @@ import { CreateaccountComponent } from './create_account/create_account.componen
     FormsModule,
     MenubarModule,
     ButtonModule,
-<<<<<<< HEAD
-    InputTextareaModule
-=======
+    InputTextareaModule,
     ReactiveFormsModule
->>>>>>> c99f8bc5fb7f67c2ee00339158cdcb48d58f0950
   ],
   providers: [],
   bootstrap: [AppComponent]

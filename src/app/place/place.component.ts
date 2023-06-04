@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PlaceService } from '../place.service';
+import { PlaceService } from '../services/place.service';
 import { ActivatedRoute } from '@angular/router';
 import { PlaceData } from '../models/place.model';
 
