@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-user',
@@ -9,9 +10,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  loginForm: FormGroup; // Déclarer la propriété loginForm
+  loginForm: FormGroup;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router, 
+    private http: HttpClient,
+    private authService: AuthenticationService
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
@@ -21,25 +26,24 @@ export class UserComponent {
   login(){
     if (this.loginForm.invalid) return;
 
-    const email = this.loginForm.get('email')!.value; // Utiliser l'opérateur '!' pour indiquer que la valeur ne sera pas null
+    const email = this.loginForm.get('email')!.value;
     const password = this.loginForm.get('password')!.value;
 
     const loginData = { email, password };
 
-    this.http.post<any>('http://localhost:3000/authentication/login', loginData)
-      .subscribe(
-        (response) => {
-          const token = response.token;
-          // Stockez le token dans le stockage local (localStorage) pour une utilisation ultérieure
-
-          // Redirigez vers une autre page ou effectuez d'autres actions
-          this.goToHomePage();
-        },
-        (error) => {
-          console.error('Login failed', error);
-          alert('Login failed');
-        }
-      );
+    this.authService.login(loginData).subscribe({
+      next: (res: any) => {
+        const token = res.token;
+        const user = res.user;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', user);
+        this.goToHomePage();
+      },
+      error: () => {
+        console.error("Login failed");
+        alert("Login failed");
+      }
+    })
   }
 
   goToCreateAccount() {

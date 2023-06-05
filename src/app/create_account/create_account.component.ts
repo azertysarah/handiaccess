@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-create_account',
@@ -21,28 +21,34 @@ export class CreateaccountComponent {
     });
     
     sign_up() {
-        if (this.sign_upForm.invalid) return;
-        
-        const formData = this.sign_upForm.value;
-        this.authService.signup(formData).subscribe(
-          (response) => {
-            // Gérez la réponse du backend ici
-            console.log(response);
-            this.goToHomePage();
-          },
-          (error) => {
-            // Gérez les erreurs ici
-            console.error(error);
-          }
-        );
+      if (this.sign_upForm.invalid) return;
+      
+      const formData = this.sign_upForm.value;
+      this.authService.signup(formData).subscribe({
+        next: (res: any) => {
+          console.log(res.message);
+          const token = res.token;
+          const user = res.user;
+          localStorage.setItem('token', token);
+          localStorage.setItem('user', user);
+          this.goToHomePage();
+        },
+        error: () => {
+          console.error("Sign up failed");
+          alert("Sign up failed");
+        }
+      });
     }      
-    constructor(private router: Router, private authService: AuthService) {}
+    constructor(
+      private router: Router, 
+      private authService: AuthenticationService
+    ) {}
     
     goToLogin() {
-        this.router.navigate(['/user']);
+      this.router.navigate(['/user']);
     }
     goToHomePage(){
-        this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
     }
       
 };

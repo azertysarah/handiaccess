@@ -19,7 +19,7 @@
     </div>
     <p>Adresse: <strong class="purple-font">{{placeData?.address}}, {{placeData?.postal_code}}, {{placeData?.city}}</strong></p>
     <!-- Go to location -->
-    <button id="goToButton" pButton label="Afficher sur la carte" class="p-button-outlined p-button-help"></button>
+    <button id="goToButton" pButton label="Afficher sur la carte" class="p-button-outlined p-button-help" (click)="goToMap()"></button>
 </div>
 <!-- Write a review -->
 <div class="newReview">

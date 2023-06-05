@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PlaceService } from '../services/place.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlaceData } from '../models/place.model';
 
 @Component({
@@ -13,7 +13,7 @@ export class PlaceComponent implements OnInit, OnDestroy {
   placeData: PlaceData | any;
   newReviewContent: any;
   rows: number = 1;
-  author: string = '';
+  author: any = localStorage.getItem('user');
   reviews: any;
 
   images = [
@@ -28,7 +28,8 @@ export class PlaceComponent implements OnInit, OnDestroy {
 
   constructor(
     private placeService: PlaceService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +46,10 @@ export class PlaceComponent implements OnInit, OnDestroy {
   }
 
   onLoginVerification() {
-    // if not logged in -> redirection to login page
+    const userToken = localStorage.getItem('token');
+    if(userToken===''){
+      this.router.navigate(['/user']);
+    }
   }
 
   onPostReview() {
@@ -57,6 +61,10 @@ export class PlaceComponent implements OnInit, OnDestroy {
         this.newReviewContent = ''
       }
     })
+  }
+
+  goToMap(){
+    this.router.navigate(['/map']);
   }
 
   ngOnDestroy(): void {
